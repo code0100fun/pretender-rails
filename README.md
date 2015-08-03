@@ -20,6 +20,24 @@ Or install it yourself as:
 
 ## Usage
 
+### Cucumber
+
+```ruby
+# features/support/env.rb
+require 'pretender/rails/cucumber'
+
+# features/step_definitions/pretender.rb
+Given(/^there is a "(.*?)" endpoint$/) do |url|
+  @stub = stub("get", url, [200, {}, ""])
+end
+
+Given(/^that endpoint returns "(.*?)"$/) do |response|
+  @stub.response = [200, {}, response]
+end
+```
+
+### In development
+
 ```ruby
 Pretender.server.stub('get', 'https://api.github.com/repos/code0100fun/pretender-rails', [200, {}, {name: "mock-repo"}.to_json])
 ```
