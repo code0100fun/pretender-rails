@@ -62,10 +62,10 @@ module Pretender
 <script>
   var server = new Pretender(function(){
     #{routes}
-    this.get('*any', this.passthrough);
-    this.post('*any', this.passthrough);
-    this.put('*any', this.passthrough);
-    this.delete('*any', this.passthrough);
+    this.get('/*any', this.passthrough);
+    this.post('/*any', this.passthrough);
+    this.put('/*any', this.passthrough);
+    this.delete('/*any', this.passthrough);
   });
 </script>
         JS
