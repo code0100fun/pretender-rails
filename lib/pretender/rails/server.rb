@@ -18,7 +18,7 @@ module Pretender
 
       def shutdown(page)
         stubs.clear
-        if page.driver.browser.respond_to? :execute_script
+        if page.driver.respond_to? :execute_script
           page.execute_script('typeof(server) !== "undefined" && server.shutdown();')
         end
       rescue Capybara::NotSupportedByDriver => e
